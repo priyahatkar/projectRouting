@@ -1,0 +1,30 @@
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card my-4" *ngFor="let tab of tabArray"
+                [routerLink]="['/tab', tab.tabId]">
+                <div class="card-body d-flex justify-content-start align-items-center">
+                    <div class="row">
+                        <div class="col-md-5 m-0">
+                            <h5>{{tab.tabName}}</h5>
+                        <p>Prize : <strong>{{tab.price}}</strong></p>
+                        <p [ngClass]="{
+                            'text-danger' : tab.rating < '4.1',
+                            'text-success' : tab.rating > '4.2'
+                        }">Rating : {{tab.rating}}</p>
+                        <p [ngClass]="{
+                            'text-info': tab.status === 'Available',
+                            'text-danger' : tab.status === 'OutOfStock'
+                        }">status : <strong>{{tab.status}}</strong> <i class="fa-solid fa-star"></i></p>
+                        </div>
+                        <div class="col-md-7 m-0">
+                            <div class="imgInfo">
+                                <img src="{{tab.imgUrl}}" alt="{{tab.tabName}}" title="{{tab.tabName}}">
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>

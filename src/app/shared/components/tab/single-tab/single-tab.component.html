@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-body d-flex justify-content-center align-items-center">
+                <div class="row">
+                    <div class="col-md-5">
+                        <h3>
+                            {{tabInfo.tabName}}
+                        </h3>
+                        <p class="text-muted"> Price : <strong>{{tabInfo.price}}</strong></p>
+                        <p>Details :{{tabInfo.details}}</p>
+                        <p [ngClass]="{
+                            'text-info': tabInfo.status === 'Available',
+                            'text-danger' : tabInfo.status === 'OutOfStock'
+                        }">status : <strong>{{tabInfo.status}}</strong></p>
+                        <p [ngClass]="{
+                            'text-danger' : tabInfo.rating < '4.1',
+                            'text-success' : tabInfo.rating > '4.2'
+                        }">Rating : {{tabInfo.rating}} <i class="fa-solid fa-star"></i></p>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="imgInfo">
+                            <img [ngClass]="" src="{{tabInfo.imgUrl}}" alt="{{tabInfo.tabName}}" title="{{tabInfo.tabName}}">
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

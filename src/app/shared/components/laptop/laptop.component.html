@@ -1,0 +1,25 @@
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="card my-5" *ngFor="let lap of lapArray" [routerLink]="['/laptop', lap.lapId]">
+            <div class="card-body d-flex justify-content-around align-items-center">
+                <div>
+                    <h3>{{lap.lName}}</h3>
+                    <p [ngClass]="{
+                        'text-success' : lap.rating > '4.5',
+                        'text-danger' : lap.rating < '4.4'
+                    }">Rating : <strong>{{lap.rating}}</strong> <i class="fa-solid fa-star"></i></p>
+                    <p >Price : <strong>{{lap.price | currency : "INR"}}</strong> </p>
+                    <p [ngClass]="{
+                        'text-danger' : lap.status === 'OutOfStock',
+                        'text-warning' : lap.status === 'Available'
+                    }">Status : <strong>{{lap.status}}</strong> </p>
+                </div>
+                <div class="imgInfo">
+                    <img src="{{lap.imgUrl}}" alt="{{lap.lName}}" title="{{lap.lName}}">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

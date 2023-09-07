@@ -1,0 +1,23 @@
+
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="card my-4" *ngFor="let comp of compArray" [routerLink]="['/computer',comp.cId]">
+            <div class="body d-flex justify-content-around align-items-center">
+                <div>
+                    <h5>{{comp.cName}}</h5>
+                    <p>Price : {{comp.price | currency : 'INR'}}</p>
+                    <p [ngClass]="{
+                        'text-danger' : comp.rating <4,
+                        'text-success' : comp.rating >4.1
+                    }">Rating : {{comp.rating}}
+                    <i class="fa-solid fa-star"></i>
+                </p>
+                </div>
+                <div class="imgInfo">
+                    <img src="{{comp.imgUrl}}" alt="{{comp.cName}}" title="{{comp.cName}}">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
